@@ -27,7 +27,7 @@ Bu sayfadan bir okuyucu bana ulaşabilir. Gönderilen mesaj veritabanına kayıt
 
 ## login
 
-<a href="https://resimyukle.link/i/9jhZE"><img src="https://resimyukle.link/img/9jhZE.md.png" alt="9jhZE.png" border="0" /></a>
+<img src="https://resimyukle.link/img/9jhZE.png" alt="9jhZE.png" border="0" />
 
 Bu sayfa ile giriş yapılıp admin paneline giriş yapılabilir.
 
