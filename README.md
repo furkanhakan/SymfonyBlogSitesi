@@ -2,34 +2,34 @@
 
 Php Symfony framework'ü kullanarak bir blog sitesi yazdım.
 
-## Ana Sayfa
+#### Ana Sayfa
 
 Bu sayfada tüm blog yazıları php ile veritabanından çekilip karşımıza çıkıyor. 1 sayfada en fazla 8 gönderi olacak şekilde ayarladım. Daha fazla gönderi olduğunda sayfalama işlemi ile gönderileri diğer sayfalara yazdım. Sağ taraftaki menüde Popüler Yazılar köşesinde yorum sayısı fazla olan 4 adet gönderiyi listeliyor. Kategoriler menüsü ise gönderilerin kategorilerine göre şekiileniyor. Gönderi ekle bölümünden farklı kategoride bir gönderi oluşturulursa kategoriler bölümünde o isimde bir sayfa açılıyor.
 
-## Kategoriler
+#### Kategoriler
 
 Bu sayfada ilgili kategoriye ait gönderiler listeleniyor.
 
-## Gönderi
+#### Gönderi
 
 Bu sayfada örnek bir gönderiyi görüyoruz. 
 
-## Iletisim
+#### Iletisim
 
 Bu sayfadan bir okuyucu bana ulaşabilir. Gönderilen mesaj veritabanına kayıt edilip admin panelinde gösterilmesi sağlanır.
 
-## login
+#### login
 
 Bu sayfa ile giriş yapılıp admin paneline giriş yapılabilir.
 
-## Admin Paneli
+#### Admin Paneli
 
 Bu sayfada tüm gönderileri görebilir bu gönderileri düzenleyebilir ve silebiliriz.
 
-## Gonderi Düzenle
+#### Gonderi Düzenle
 
 Bu sayfada seçtiğimiz gönderiyi düzenleyebiliriz.
 
-## Gonderi Ekle
+#### Gonderi Ekle
 
 Bu sayfada yeni bir gönderi ekleyebiliriz.
