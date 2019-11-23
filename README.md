@@ -7,11 +7,15 @@ Php Symfony framework'ü kullanarak bir blog sitesi yazdım.
 
 Bu sayfada tüm blog yazıları php ile veritabanından çekilip karşımıza çıkıyor. 1 sayfada en fazla 8 gönderi olacak şekilde ayarladım. Daha fazla gönderi olduğunda sayfalama işlemi ile gönderileri diğer sayfalara yazdım. Sağ taraftaki menüde Popüler Yazılar köşesinde yorum sayısı fazla olan 4 adet gönderiyi listeliyor. Kategoriler menüsü ise gönderilerin kategorilerine göre şekiileniyor. Gönderi ekle bölümünden farklı kategoride bir gönderi oluşturulursa kategoriler bölümünde o isimde bir sayfa açılıyor.
 
+
+
 ## Kategoriler
 
 <img src = "https://resimag.com/p1/d4570b71e5f.png" />
 
 Bu sayfada ilgili kategoriye ait gönderiler listeleniyor.
+
+
 
 ## Gönderi
 
@@ -19,17 +23,23 @@ Bu sayfada ilgili kategoriye ait gönderiler listeleniyor.
 
 Bu sayfada örnek bir gönderiyi görüyoruz. 
 
+
+
 ## Iletisim
 
 <img src = "https://www.resimag.com/p1/eca30c22475.png" />
 
 Bu sayfadan bir okuyucu bana ulaşabilir. Gönderilen mesaj veritabanına kayıt edilip admin panelinde gösterilmesi sağlanır.
 
+
+
 ## login
 
 <img src="https://resimyukle.link/img/9jhZE.png" alt="9jhZE.png" border="0" />
 
 Bu sayfa ile giriş yapılıp admin paneline giriş yapılabilir.
+
+
 
 ## Admin Paneli
 
@@ -38,11 +48,15 @@ Bu sayfa ile giriş yapılıp admin paneline giriş yapılabilir.
 
 Bu sayfada tüm gönderileri görebilir bu gönderileri düzenleyebilir ve silebiliriz.
 
+
+
 ## Gonderi Düzenle
 
 <img src = "https://www.resimag.com/p1/11387f4832c.png" />
 
 Bu sayfada seçtiğimiz gönderiyi düzenleyebiliriz.
+
+
 
 ## Gonderi Ekle
 
