@@ -3,7 +3,7 @@
 Php Symfony framework'ü kullanarak bir blog sitesi yazdım.
 
 #### Ana Sayfa
-<a href="https://resmim.net/run/JUyHsn.png"><img src="https://resmim.net/f/JUyHsn.png" /></a>
+
 Bu sayfada tüm blog yazıları php ile veritabanından çekilip karşımıza çıkıyor. 1 sayfada en fazla 8 gönderi olacak şekilde ayarladım. Daha fazla gönderi olduğunda sayfalama işlemi ile gönderileri diğer sayfalara yazdım. Sağ taraftaki menüde Popüler Yazılar köşesinde yorum sayısı fazla olan 4 adet gönderiyi listeliyor. Kategoriler menüsü ise gönderilerin kategorilerine göre şekiileniyor. Gönderi ekle bölümünden farklı kategoride bir gönderi oluşturulursa kategoriler bölümünde o isimde bir sayfa açılıyor.
 
 #### Kategoriler
