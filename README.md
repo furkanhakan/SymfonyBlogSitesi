@@ -1,6 +1,6 @@
 # SymfonyBlogSitesi
 
-Php Symfony framework'ü kullanarak bir blog sitesi yazdım.
+Php Symfony framework'ü kullanarak bir blog sitesi yazdım.(Devam Ediyorum)
 
 ## Ana Sayfa
 <img src="https://www.resimag.com/p1/81e48fb27e8.png" style={width}/>
