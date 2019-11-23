@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post{% endblock %}
+
+
+{% block body %}
+    {% block main_content %}
+        <div class="row">
+            {% for gonderi in gonderisayfa %}
+                <div class="col-md-6">
+                    <a href="{{ path('gonderidetay',{'gonderibasligi':gonderi.gonderibasligi|replace({' ':'-'})}) }}" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                        <img src="{{ asset('images') }}/{{ gonderi.kapak }}" alt="Image placeholder">
+                        <div class="blog-content-body">
+                            <div class="post-meta">
+                                <span class="category">{{gonderi.kategori}}</span>
+                                <span class="mr-2">{{gonderi.gonderitarihi|date('Y-m-d')}} </span> &bullet;
+                                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                            </div>
+                            <h2>{{gonderi.gonderibasligi}}</h2>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <nav aria-label="Page navigation" class="text-center">
+                    <ul class="pagination">
+                        {% if sayfa == 2 or sayfa == 1 %}
+                            <li class="page-item"><a class="page-link" href="{{ path('anasayfa') }}">Geri</a></li>
+                        {% else %}
+                        <li class="page-item"><a class="page-link" href="{{ path('sayfalama',{'sayfa':sayfa-1}) }}">Geri</a></li>
+                        {% endif %}
+                        {% for i in 1..gonderiler|length / 8 + 0.9 %}
+                            {% if i == 1 %}
+                                <li class="page-item"><a class="page-link" href="{{ path('anasayfa') }}">{{ i }}</a></li>
+                            {% elseif i == sayfa %}
+                                <li class="page-item active"><a class="page-link" href="{{ path('sayfalama',{'sayfa':i}) }}">{{ i }}</a></li>
+                                {% else %}
+                                    <li class="page-item"><a class="page-link" href="{{ path('sayfalama',{'sayfa':i}) }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if sayfa >= gonderiler|length / 8 %}
+                            <li class="page-item disabled"><a class="page-link" href="">İleri</a></li>
+                        {% else %}
+                        <li class="page-item"><a class="page-link" href="{{ path('sayfalama',{'sayfa':sayfa + 1}) }}">İleri</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}Gönderi Düzenle{% endblock %}
+
+{% block body %}
+    <h1>Edit Gonderi</h1>
+
+    {{ include('gonderi/_form.html.twig', {'button_label': 'Güncelle'}) }}
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#gonderi_gonderiicerigi' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+{% endblock %}

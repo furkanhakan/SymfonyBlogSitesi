@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hakkımda{% endblock %}
+
+
+{% block body %}
+
+    {% block main_content %}
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="mb-4">Hoşgeldiniz! Ben Furkan Hakan</h2>
+                <p class="mb-5"><img src="{{ asset('images/hakkimda.jpg') }}" alt="Image placeholder" class="img-fluid" width="100%" height="100px"></p>
+                <p>Blog'uma hoş geldiniz. Ben Furkan Hakan.</p>
+                <p>2017 yılında anadolu meslek lisesinin Ağ İşletmenliği bölümünden mezun oldum. Okuldaki hocalarım sayesinde bilgisayarı ve yazılımla uğraşmayı sevdim. Bu yüzden mezun olduktan sonra Düzce Üniversitesi Bilgisayar Mühendisliği bölümünü kazandım.</p>
+                <p>
+                    Üniversite'de yazılım'da daldan dala atladım diyebiliriz. Hangi alanda kariyer yapmak istediğimi bir türlü karar veremiyordum.
+                    Android, Web, Siber Güvenlik, Derin Öğrenme vs. Her alanın kendine göre güzellikleri var.
+                    En sonunda Php ile kariyerime devam etmeye karar verdim. Şu an Php Symfony framework'ü öğreniyorum.
+                    Hatta bu blog sitemi Symfony ile yazıyorum. Tabii bunu yaparken diğer konulardan da sürekli haberler, makaleler vs okuyarak bu konularda da bilgi sahibi olmaya çalışıyorum.
+                </p>
+                <p>Bu blog sitemi, hem yazılım öğrenme sürecimde öğrendiklerimi bir yerde toplayıp kendime bir kaynak oluşturmak hem de benim gibi bu süreçte olan abilerime, ablalarıma ve kardeşlerime öğrendiklerimi aktarıp onların öğrenmesine bir nebze olsun yardımda bulunmak için açıyorum.
+                    Burada hep beraber bir şeyler öğreneceğiz.
+                </p>
+            </div>
+        </div>
+    {% endblock %}
+
+{% endblock %}

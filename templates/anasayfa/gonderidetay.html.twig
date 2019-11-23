@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ana Sayfa{% endblock %}
+
+
+{% block body %}
+
+    {% block main_content %}
+
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{{ asset('images') }}/{{ gonderi.kapak }}" alt="Image placeholder">
+                <div class="blog-content-body">
+                    <div class="post-meta">
+                    </div>
+                    <div>{{gonderi.gonderiicerigi|raw}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+
+            <p style="font-size: 13px;color:black;font-weight: bold;">YORUMLAR <span>({{ yorumlar|length }})</span></p>
+            <div id="">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input type="text" id="name" class="form-control" placeholder="Adınız..." name="yorumlar[yorumadi]">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input type="email" id="email" class="form-control" placeholder="Mail adresiniz..." name="yorumlar[yorummail]">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <textarea name="yorumlar[yorum]" id="message" class="form-control " rows="4" placeholder="Yorumunuzu yazın..."></textarea>
+                        </div>
+                        <input type="number" name="yorumlar[yorumid]" hidden value="{{ gonderi.id }}">
+                        <input type="number" name="yorumlar[parentid]" hidden value="-1">
+                        <div class="form-group col-md-12">
+                            <input type="submit" value="Yorumu Gönder" class="btn btn-primary float-right">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="tumyorumlar">
+                {% for yorum in yorumlar %}
+                    {% if yorum.parentid == -1 %}
+                        <div id="yorum">
+                            <div class="comment mb-4">
+                                <div class="">
+                                    <h5 class="">{{yorum.yorumadi}} <span id="tarih">{{yorum.yorumtarihi|date('d-m-Y')}}</span></h5>
+                                    <p id="yorumicerik">{{ yorum.yorum }}</p>
+                                    <a class="float-right btn" onclick="cevapla({{yorum.id}});">Cevapla</a>
+                                </div>
+                            </div>
+                            <script>
+                                function cevapla($gelen){
+                                    if (document.getElementById($gelen).style.display == 'block')
+                                        document.getElementById($gelen).style.display = 'none';
+                                    else
+                                        document.getElementById($gelen).style.display = 'block';
+                                }
+                            </script>
+                            <div id="yorumparent">
+                                <div id="{{ yorum.id }}" class="cevapla">
+                                    <form method="post">
+                                        <div class="row">
+                                            <div class="col-md-6 form-group">
+                                                <input type="text" id="name" class="form-control" placeholder="Adınız..." name="yorumlar[yorumadi]">
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <input type="email" id="email" class="form-control" placeholder="Mail adresiniz..." name="yorumlar[yorummail]">
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <textarea name="yorumlar[yorum]" id="message" class="form-control " rows="4" placeholder="Yorumunuzu yazın..."></textarea>
+                                            </div>
+                                            <input type="number" name="yorumlar[yorumid]" hidden value="{{ gonderi.id }}">
+                                            <input type="number" name="yorumlar[parentid]" hidden value="{{ yorum.id }}">
+                                            <div class="form-group col-md-12">
+                                                <input type="submit" value="Yorumu Gönder" class="btn btn-primary float-right">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            {% for yorumparent in yorumlar %}
+                                {% if yorumparent.parentid == yorum.id %}
+                                    <div class="comment less">
+                                        <div class="text">
+                                            <h5 class="">{{yorumparent.yorumadi}} <span id="tarih">{{yorumparent.yorumtarihi|date('d-m-Y')}}</span></h5>
+                                            <p id="yorumicerik"> {{ yorumparent.yorum }}</p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <p>Email: {{ app.user.email }}</p>
+        {% endif %}
+    {% endblock %}
+{% endblock %}

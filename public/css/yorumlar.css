@@ -1,0 +1,23 @@
+#yorumparent{
+    margin: 0 25px 25px 75px;
+}
+#yorumicerik{
+    font-size: 110%;
+    margin-top: -5px;
+}
+#tarih:before{
+    content: ' - ';
+}
+#tarih{
+    font-size: 13px;
+ font-style: italic;
+}
+.comment a{
+    margin-top: -20px;
+}
+.comment a:hover{
+    cursor: pointer;
+}
+.cevapla{
+    display: none;
+}

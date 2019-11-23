@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gonderi{% endblock %}
+
+{% block body %}
+    <h1>Gonderi</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ gonderi.id }}</td>
+            </tr>
+            <tr>
+                <th>Gonderibasligi</th>
+                <td>{{ gonderi.gonderibasligi }}</td>
+            </tr>
+            <tr>
+                <th>Gonderiicerigi</th>
+                <td>{{ gonderi.gonderiicerigi }}</td>
+            </tr>
+            <tr>
+                <th>Gonderitarihi</th>
+                <td>{{ gonderi.gonderitarihi ? gonderi.gonderitarihi|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Kapak</th>
+                <td>{{ gonderi.kapak }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('gonderi_index') }}">back to list</a>
+
+    <a href="{{ path('gonderi_edit', {'id': gonderi.id}) }}">edit</a>
+
+    {{ include('gonderi/_delete_form.html.twig') }}
+{% endblock %}

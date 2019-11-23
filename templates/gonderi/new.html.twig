@@ -1,0 +1,82 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}New Gonderi{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-lg-9 col-md-12">
+            <!-- Add New Post Form -->
+            <div class="card card-small mb-3">
+                <div class="card-body">
+
+                    <form class="add-new-post" name="gonderi" method="post">
+
+                        <input class="form-control form-control-lg mb-3" name="gonderi[gonderibasligi]" type="text" required="required" placeholder="Your Post Title">
+                        <textarea id="gonderi_gonderiicerigi" name="gonderi[gonderiicerigi]" required="required"></textarea>
+                        <input class="form-control form-control-lg mb-3 mt-3" type="text" name="gonderi[kapak]" placeholder="Kapak Fotoğrafı">
+                        <input class="form-control form-control-lg mb-3" name="gonderi[kategori]" type="text" placeholder="Gönderi Kategorisi">
+                        <button type="submit" class="btn btn-success">Gönder</button>
+                    </form>
+
+                </div>
+            </div>
+            <!-- / Add New Post Form -->
+        </div>
+        <div class="col-lg-3 col-md-12">
+            <!-- Post Overview -->
+            <div class='card card-small mb-3'>
+                <div class="card-header border-bottom">
+                    <h6 class="m-0">Categories</h6>
+                </div>
+                <div class='card-body p-0'>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item px-3 pb-2">
+                            <div class="custom-control custom-checkbox mb-1">
+                                <input type="checkbox" class="custom-control-input" id="category1" checked>
+                                <label class="custom-control-label" for="category1">Uncategorized</label>
+                            </div>
+                            <div class="custom-control custom-checkbox mb-1">
+                                <input type="checkbox" class="custom-control-input" id="category2" checked>
+                                <label class="custom-control-label" for="category2">Design</label>
+                            </div>
+                            <div class="custom-control custom-checkbox mb-1">
+                                <input type="checkbox" class="custom-control-input" id="category3">
+                                <label class="custom-control-label" for="category3">Development</label>
+                            </div>
+                            <div class="custom-control custom-checkbox mb-1">
+                                <input type="checkbox" class="custom-control-input" id="category4">
+                                <label class="custom-control-label" for="category4">Writing</label>
+                            </div>
+                            <div class="custom-control custom-checkbox mb-1">
+                                <input type="checkbox" class="custom-control-input" id="category5">
+                                <label class="custom-control-label" for="category5">Books</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex px-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="New category" aria-label="Add new category" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-white px-2" type="button">
+                                        <i class="material-icons">add</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- / Post Overview -->
+        </div>
+    </div>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#gonderi_gonderiicerigi' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+        window.onload = function(e){
+            document.getElementById('gonderi_gonderiicerigi').innerText=" ";
+        }
+    </script>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}İletişim{% endblock %}
+
+
+{% block body %}
+    {% block main_content %}
+
+        <form action="" method="post">
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    <label for="name">Adınız</label>
+                    <input type="text" id="name" name="mesajlar[adi]" class="form-control ">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label for="email">Mail Adresiniz</label>
+                    <input type="email" id="email" name="mesajlar[mailadresi]" class="form-control ">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label for="phone">Konu</label>
+                    <input type="text" id="phone" name="mesajlar[konu]" class="form-control ">
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label for="message">Mesajınız</label>
+                    <textarea name="mesajlar[mesaj]" id="message" class="form-control" cols="30" rows="8"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <input type="submit" value="Mesajı Gönder" class="btn btn-primary">
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-md-8">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3015.3868978147943!2d31.18085631527383!3d40.907261979311066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x409da0dd3f07ef15%3A0xc6d7896027c0e5e9!2zRMO8emNlIMOcbml2ZXJzaXRlc2k!5e0!3m2!1str!2str!4v1573506064470!5m2!1str!2str" width="100%" height="350px" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+
+    {% endblock %}
+{% endblock %}

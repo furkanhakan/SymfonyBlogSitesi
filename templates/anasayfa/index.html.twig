@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ana Sayfa{% endblock %}
+
+{% block javascripts %}
+    <script>
+        var yorum = document.getElementsByClassName('yorumsayisi');
+        for (i=0;i<yorum.length;i++){
+            if (yorum[i].innerHTML == '')
+                yorum[i].innerHTML = '0';
+        }
+    </script>
+{% endblock %}
+{% block body %}
+
+    {% block slider %}
+        <!-- section -->
+
+        <section class="site-section pt-5">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="owl-carousel owl-theme home-slider">
+                            {% for gonderi in gonderi %}
+                                <div>
+                                    <a href="{{ path('gonderidetay',{'gonderibasligi':gonderi.gonderibasligi|replace({' ':'-'})}) }}" class="a-block d-flex align-items-center height-lg" style="background-image: url({{ asset('images/') }}{{ gonderi.kapak }}); ">
+                                        <div class="text half-to-full">
+                                            <div class="post-meta">
+                                                <span class="category">{{gonderi.kategori}}</span>
+                                                <span class="mr-2">{{gonderi.gonderitarihi|date('d-m-Y')}} </span> &bullet;
+                                                <span class="ml-2">
+                                                    <span class="fa fa-comments yorumsayisi">
+                                                    {% set sayi = 0 %}
+                                                        {% for yorum in yorumlar %}
+                                                            {% if gonderi.id == yorum.yorum %}
+                                                                {% set sayi = yorum.sayi %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {{ sayi }}
+                                                    </span>
+
+                                                </span>
+                                            </div>
+                                            <h2>{{gonderi.gonderibasligi}}</h2>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+        <!-- END section -->
+    {% endblock %}
+
+    {% block main_content %}
+        <div class="row">
+            {% for gonderi in gonderisayfa %}
+                <div class="col-md-6">
+                    <a href="{{ path('gonderidetay',{'gonderibasligi':gonderi.gonderibasligi|replace({' ':'-'})}) }}" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                        <img src="{{ asset('images') }}/{{ gonderi.kapak }}" alt="Image placeholder">
+                        <div class="blog-content-body">
+                            <div class="post-meta">
+                                <span class="category">{{gonderi.kategori}}</span>
+                                <span class="mr-2">{{gonderi.gonderitarihi|date('d-m-Y')}} </span> &bullet;
+                                <span class="ml-2"><span class="fa fa-comments"></span>
+                                    {% set sayi = 0 %}
+                                {% for yorum in yorumlar %}
+                                    {% if gonderi.id == yorum.yorum %}
+                                    {% set sayi = yorum.sayi %}
+                                    {% endif %}
+                                {% endfor %}
+                                    {{ sayi }}
+                                </span>
+                            </div>
+                            <h2>{{gonderi.gonderibasligi}}</h2>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <nav aria-label="Page navigation" class="text-center">
+                    <ul class="pagination">
+                        {% for i in 1..(gonderiler|length / 8 + 0.375 )|round %}
+                            {% if i == 1 %}
+                                <li class="page-item disabled"><a class="page-link" href="#">Geri</a></li>
+                                <li class="page-item active"><a class="page-link" href="{{ path('anasayfa') }}">{{ i }}</a></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link" href="{{ path('sayfalama',{'sayfa':i}) }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if (gonderiler|length / 8) > 1 %}
+                            <li class="page-item"><a class="page-link" href="{{ path('sayfalama',{'sayfa':2}) }}">İleri</a></li>
+                        {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="{{ path('sayfalama',{'sayfa':2}) }}">İleri</a></li>
+                        {% endif %}
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

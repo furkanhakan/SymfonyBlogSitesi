@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post{% endblock %}
+
+
+{% block body %}
+    {% block main_content %}
+        <div class="row">
+            <div class="col-md-12">
+            {% for gonderi in sinirligonderi %}
+
+                    <div class="post-entry-horzontal" style="width: 100%;">
+                    <a href="{{ path('gonderidetay',{'gonderibasligi':gonderi.gonderibasligi|replace({' ':'-'})}) }}" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                        <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url({{ asset('images/') }}{{ gonderi.kapak }});"></div>
+                        <span class="text">
+                            <div class="post-meta">
+                                <span class="category">{{gonderi.kategori}}</span>
+                                <span class="mr-2">{{gonderi.gonderitarihi|date('d-m-Y')}} </span> &bullet;
+                                <span class="ml-2"><span class="fa fa-comments"></span>
+                                {% set sayi = 0 %}
+                                    {% for yorum in yorumlar %}
+                                        {% if gonderi.id == yorum.yorum %}
+                                            {% set sayi = yorum.sayi %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {{ sayi }}</span>
+                            </div>
+                            <h2>{{gonderi.gonderibasligi}}</h2>
+                        </span>
+                    </a>
+                    </div>
+
+            {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <nav aria-label="Page navigation" class="text-center">
+                    <ul class="pagination">
+                        {% if sayfa == 1 %}
+                            <li class="page-item disabled"><a class="page-link" href="{{ path('kategori', {kategori:tumgonderiler[0].kategori|replace({' ':'-'}),sayfa:1}) }}">Geri</a></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="{{ path('kategori', {kategori:tumgonderiler[0].kategori|replace({' ':'-'}),sayfa:sayfa -1}) }}">Geri</a></li>
+                        {% endif %}
+                        {% for i in 1..(tumgonderiler|length / 8 + 0.375 )|round %}
+                            {% if i == sayfa %}
+                                <li class="page-item active"><a class="page-link" href="{{ path('kategori', {kategori:tumgonderiler[0].kategori|replace({' ':'-'}),sayfa:i}) }}">{{ i }}</a></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link" href="{{ path('kategori', {kategori:tumgonderiler[0].kategori|replace({' ':'-'}),sayfa:i}) }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if sayfa >= tumgonderiler|length / 8 %}
+                            <li class="page-item disabled"><a class="page-link" href="">İleri</a></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="{{ path('kategori', {kategori:tumgonderiler[0].kategori|replace({' ':'-'}),sayfa:sayfa + 1}) }}">İleri</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}
