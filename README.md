@@ -10,8 +10,7 @@ Bu sayfada tüm blog yazıları php ile veritabanından çekilip karşımıza ç
 
 
 ## Kategoriler
-
-<img src = "https://resimag.com/p1/d4570b71e5f.png" />
+<img src="https://i.hizliresim.com/7BrkVl.png"/>
 
 Bu sayfada ilgili kategoriye ait gönderiler listeleniyor.
 
